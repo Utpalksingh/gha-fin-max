@@ -7,6 +7,11 @@ on:
       - feature/*
       - 'release/*'
       - 'hotfix/*'
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - develop
 jobs:
   build:
     runs-on: ubuntu-latest
