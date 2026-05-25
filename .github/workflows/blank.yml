@@ -1,4 +1,4 @@
-name: hello world
+name: Git action demo
 on:
   push: 
     branches:
@@ -13,12 +13,12 @@ on:
       - main
       - develop
 jobs:
-  build:
+  job-checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: deploy job
-        run: |
-          echo "job deployed"
-          echo "hello ${{ vars.MY_NAME }}"
+      - name: checkout the code
+        uses: actions/checkout@v6
+      - name: output in index.html
+        run: cat index.html
   
     
