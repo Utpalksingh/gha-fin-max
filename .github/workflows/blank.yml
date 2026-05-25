@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: deploy job
-        run: echo "job deployed"
+        run: |
+          echo "job deployed"
+          echo "hello ${{ vars.MY_NAME }}"
   
     
