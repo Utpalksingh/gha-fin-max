@@ -1,0 +1,14 @@
+name: input demo check
+on: 
+  workflow_dispatch:
+    inputs:
+      description: choose your environment
+      env:
+        default: test
+
+jobs:
+  input_demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: env check for job
+        run: echo "current job is being run on $inputs.env"
