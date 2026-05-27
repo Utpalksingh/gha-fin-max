@@ -12,4 +12,9 @@ jobs:
         # env:
         #   APP_NAME: prod
         run: echo "app varibale env is $APP_NAME"
+
+      - name: check the step level env
+        env:
+          APP_NAME: pre-prod
+        run: echo "app varibale env is $APP_NAME"
     
