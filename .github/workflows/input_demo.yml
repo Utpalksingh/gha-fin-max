@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: env check for job
-        run: echo "current job is being run on $inputs.env"
+        run: echo "current job is being run on ${{ github.event.inputs.env }}"
