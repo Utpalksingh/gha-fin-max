@@ -6,6 +6,10 @@ on:
         description: "choose your environment"
         required: true
         default: "test"
+      required_tag:
+        description: "pass your github tag to deploy code"
+        required: true
+        default: 0.0.1
 jobs:
   input_demo:
     runs-on: ubuntu-latest
@@ -14,3 +18,5 @@ jobs:
         run: echo "current job is being run on ${{ github.event.inputs.environment }}"
       - name: check again
         run: echo "envn is ${{ inputs.environment }}"
+      - name: deploy your code
+        run: echo "current deployed tag ${{ inputs.required_tag }} on ${{ inputs.environment }}"
