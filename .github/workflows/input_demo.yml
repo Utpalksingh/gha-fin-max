@@ -16,6 +16,9 @@ on:
         description: "pass your github tag to deploy code"
         required: true
         default: 0.0.1
+      publisher_name:
+        description: "name the author"
+        required: true
 jobs:
   input_demo:
     runs-on: ubuntu-latest
@@ -25,4 +28,6 @@ jobs:
       - name: check again
         run: echo "envn is ${{ inputs.environment }}"
       - name: deploy your code
-        run: echo "current deployed tag ${{ inputs.required_tag }} on ${{ inputs.environment }}"
+        run: |
+          echo "current deployed tag ${{ inputs.required_tag }} on ${{ inputs.environment }}"
+          echo "code pushed by ${{ inputs.publisher_name }}"
