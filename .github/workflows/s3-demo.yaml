@@ -26,8 +26,8 @@ jobs:
       - name: deploy code on s3
         run: |
           aws s3 sync ./ s3://git-s3-chicku-demo-bucket/ \
-          -- exclude "*" \
-          -- include "index.html"
+            --exclude "*" \
+            --include "index.html"
           
         
   
