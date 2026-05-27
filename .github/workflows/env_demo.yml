@@ -1,0 +1,11 @@
+name: env variables demo
+on: workflow_dispatch
+env:
+  APP_NAME: test
+jobs:
+  demo_env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list the var env details
+        run: echo "app varibale env is env.APP_NAME"
+    
