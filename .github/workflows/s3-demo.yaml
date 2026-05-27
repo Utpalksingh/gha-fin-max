@@ -23,7 +23,11 @@ jobs:
           role-to-assume: ${{ secrets.AWS_IAM_ROLE}}
           aws-region: ap-south-1
           
-      - name: Test AWS Connection
-        run: aws sts get-caller-identity
+      - name: deploy code on s3
+        run: |
+          aws s3 sync ./ s3://git-s3-chicku-demo-bucket/ \
+          -- exclude "*" \
+          -- include "index.html"
+          
         
   
