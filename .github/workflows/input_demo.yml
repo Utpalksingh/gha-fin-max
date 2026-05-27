@@ -6,6 +6,12 @@ on:
         description: "choose your environment"
         required: true
         default: "test"
+        type: choice
+        options:
+          - dev
+          - test
+          - preprod
+          - prod
       required_tag:
         description: "pass your github tag to deploy code"
         required: true
