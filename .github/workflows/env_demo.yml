@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: list the var env details
-        run: echo "app varibale env is env.$APP_NAME"
+        run: echo "app varibale env is $APP_NAME"
     
