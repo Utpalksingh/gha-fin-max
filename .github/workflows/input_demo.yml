@@ -2,10 +2,10 @@ name: input demo check
 on: 
   workflow_dispatch:
     inputs:
-      description: choose your environment
       env:
-        default: test
-
+        description: "choose your environment"
+        required: true
+        default: "test"
 jobs:
   input_demo:
     runs-on: ubuntu-latest
