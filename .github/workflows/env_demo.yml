@@ -1,0 +1,23 @@
+name: env variables demo
+on: workflow_dispatch
+env:
+  APP_NAME: dev
+jobs:
+  demo_env:
+    env:
+      APP_NAME: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: list the var env details
+        # env:
+        #   APP_NAME: prod
+        run: echo "app varibale env is $APP_NAME"
+
+      - name: check the step level env
+        env:
+          APP_NAME: pre-prod
+        run: echo "app varibale env is $APP_NAME"
+
+      - name: print env from github vars
+        run: echo "my new env is ${{ vars.APP_NAME }}"
+    

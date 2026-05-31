@@ -1,0 +1,33 @@
+name: input demo check
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "choose your environment"
+        required: true
+        default: "test"
+        type: choice
+        options:
+          - dev
+          - test
+          - preprod
+          - prod
+      required_tag:
+        description: "pass your github tag to deploy code"
+        required: true
+        default: 0.0.1
+      publisher_name:
+        description: "name the author"
+        required: true
+jobs:
+  input_demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: env check for job
+        run: echo "current job is being run on ${{ github.event.inputs.environment }}"
+      - name: check again
+        run: echo "envn is ${{ inputs.environment }}"
+      - name: deploy your code
+        run: |
+          echo "current deployed tag ${{ inputs.required_tag }} on ${{ inputs.environment }}"
+          echo "code pushed by ${{ inputs.publisher_name }}"
