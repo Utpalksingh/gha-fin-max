@@ -2,15 +2,6 @@ name: Git action demo
 on:
   push: 
     branches:
-      - main
-      - develop
-      - feature/*
-      - 'release/*'
-      - 'hotfix/*'
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches:
-      - main
       - develop
 jobs:
   job-checkout:
