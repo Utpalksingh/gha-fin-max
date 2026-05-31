@@ -11,4 +11,3 @@ jobs:
       - name: print the output value here
         run: |
           echo "current version is ${{ steps.oj1.outputs.version}}"
-          current version is: ${{ steps.oj1.outputs.version}}
