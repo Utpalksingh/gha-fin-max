@@ -1,0 +1,14 @@
+name: context-demo 
+on: push
+jobs:
+  context-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: context varibale output 
+        run: |
+          echo "job ran by ${{ github.actor }}"
+          echo "repo name is ${{ github.repository }}"
+
+      - name: list all context variables
+        run: echo "here are all the context variables ${{ toJson(github) }}"
+        
