@@ -16,7 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: perform quality check
-        run: echo "Performing quality check for feature branch push or PR event"
+        run: |
+          echo "Performing quality check for feature branch push or PR event"
+          exit 1 # Simulating a failure in quality check for demonstration purposes
   
   devlop-deploy:
     if: github.ref_name == 'devlop' && github.event_name == 'push'
