@@ -32,16 +32,16 @@ jobs:
         run: echo "Deploying to production environment for main branch push event"
 
   success-email:
-    needs: quality-check
-    if: needs.quality-check.result == 'success' && (github.event_name == 'push' || github.event_name == 'pull_request')
+    needs: [quality-check, devlop-deploy, production-deploy]
+    if: always() && !failure()
     runs-on: ubuntu-latest
     steps:
       - name: send success email
         run: echo "Sending success email for feature branch event"
 
   failure-email:
-    needs: quality-check
-    if: needs.quality-check.result == 'failure' && (github.event_name == 'push' || github.event_name == 'pull_request')
+    needs: [quality-check, devlop-deploy, production-deploy]
+    if: failure()
     runs-on: ubuntu-latest
     steps:
       - name: send failure email
