@@ -1,0 +1,24 @@
+name: build and deploy with condition
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - opened
+      - synchronize
+      - reopened
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: building
+        run: echo "building..."
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+    steps:
+      - name: deploying
+        run: echo "deploying..."
