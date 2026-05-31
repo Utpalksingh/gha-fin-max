@@ -9,8 +9,8 @@ jobs:
           echo "job ran by ${{ github.actor }}"
           echo "repo name is ${{ github.repository }}"
 
-      - name: list all context variables
-        run: echo "here are all the context variables ${{ toJson(github) }}"
+      # - name: list all context variables
+      #   run: echo "here are all the context variables ${{ toJson(github) }}"
       - name: print environment variables
         run: |
           echo "branch is": $GITHUB_REF_NAME
