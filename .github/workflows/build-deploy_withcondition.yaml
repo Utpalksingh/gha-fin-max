@@ -15,7 +15,7 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: building
-        run: echo "building...."
+        run: echo "building..."
   deploy:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
