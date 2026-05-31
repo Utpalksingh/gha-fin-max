@@ -1,0 +1,31 @@
+name: if with conditions demo
+on:
+    push:
+        branches: 
+            - devlop
+            - main
+            - feature/*
+    pull_request:
+        branches: 
+            - feature/*
+jobs:
+    quality-check:
+        if: startsWith(github.ref_name, 'feature/') && github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: perform quality check
+              run: echo "Performing quality check for feature branch push event"
+    success-email:
+        needs: quality-check
+        if: needs.quality-check.result == 'success' && github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: send success email
+              run: echo "Sending success email for feature branch push event"
+    failure-email:
+        needs: quality-check
+        if: needs.quality-check.result == 'failure' && github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: send failure email
+              run: echo "Sending failure email for feature branch push event"
