@@ -5,5 +5,7 @@ on:
       - main
 jobs:
   call_reuseable_workflow:
-    # uses: ./.github/workflows/reuseable-workflow.yml
-    uses: Utpalksingh/gh-practise-project/.github/workflows/reuseable-workflow.yml@main
+    uses: ./.github/workflows/reuseable-workflow.yml
+    with:
+      name: "Utpalksingh"
+    # uses: Utpalksingh/gh-practise-project/.github/workflows/reuseable-workflow.yml@main
