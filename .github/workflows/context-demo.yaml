@@ -13,6 +13,6 @@ jobs:
         run: echo "here are all the context variables ${{ toJson(github) }}"
       - name: print environment variables
         run: |
-          echo $GITHUB_REF_NAME
-          echo $GITHUB_ACTOR
+          echo "branch is": $GITHUB_REF_NAME
+          echo "job ran by": $GITHUB_ACTOR
         
